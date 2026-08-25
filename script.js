@@ -42,8 +42,10 @@ function renderizarEquipos() {
 
 function actualizarContadores(equipos) {
   document.getElementById("statTotal").textContent = equipos.length;
-  document.getElementById("statRealizados").textContent =
-    equipos.filter((e) => e.estado === "ok").length;
+  // "Mantenimientos realizados" NO se calcula a partir del estado del equipo:
+  // ese panel se usará más adelante para los mantenimientos que se registren
+  // desde la sección "Mantenimientos". Por ahora queda en 0.
+  document.getElementById("statRealizados").textContent = 0;
   document.getElementById("statPendientes").textContent =
     equipos.filter((e) => e.estado === "pendiente").length;
 }
