@@ -1,101 +1,128 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Mantenimiento Escolar</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mantenimiento Escolar</title>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <header>
-        <h1>🏫 Mantenimiento Escolar</h1>
-        <link rel="stylesheet" href="style.css">
-        <p>Sistema de gestión de equipos y mantenimiento</p>
-    </header>
+<header>
+<h1>🏫 Mantenimiento Escolar</h1>
+<p>Sistema de gestión de equipos y mantenimiento</p>
+</header>
 
-    <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#equipos">Equipos</a>
-        <a href="#mantenimientos">Mantenimientos</a>
-        <a href="#historial">Historial</a>
-    </nav>
+<nav>
+<a href="#inicio">Inicio</a>
+<a href="#equipos">Equipos</a>
+<a href="#mantenimientos">Mantenimientos</a>
+<a href="#historial">Historial</a>
+</nav>
 
-    <main>
+<main>
 
-        <section id="inicio">
+<section id="inicio">
+<h2>Panel principal</h2>
+<p>
+  Bienvenido al sistema de mantenimiento del colegio.
+</p>
 
-            <h2>Panel principal</h2>
+<div>
+  <h3>🖥️ Equipos registrados</h3>
+  <p id="statTotal">0</p>
+</div>
 
-            <p>
-                Bienvenido al sistema de mantenimiento del colegio.
-            </p>
+<div>
+  <h3>🔧 Mantenimientos realizados</h3>
+  <p id="statRealizados">0</p>
+</div>
 
-            <div>
-                <h3>🖥️ Equipos registrados</h3>
-                <p>0</p>
-            </div>
+<div>
+  <h3>⚠️ Mantenimientos pendientes</h3>
+  <p id="statPendientes">0</p>
+</div>
+</section>
 
-            <div>
-                <h3>🔧 Mantenimientos realizados</h3>
-                <p>0</p>
-            </div>
+<section id="equipos">
+<h2>🖥️ Equipos</h2>
+<p>
+  Aquí podremos registrar computadoras, impresoras,
+  maquinarias y otros equipos del colegio.
+</p>
 
-            <div>
-                <h3>⚠️ Mantenimientos pendientes</h3>
-                <p>0</p>
-            </div>
+<button id="btnToggleForm">Agregar equipo</button>
 
-        </section>
+<div id="formAgregar" class="form-equipo">
+  <div class="campo">
+    <label for="inputNombre">Nombre del equipo</label>
+    <input type="text" id="inputNombre" placeholder="Ej: PC Lab 03">
+  </div>
+  <div class="campo">
+    <label for="inputTipo">Tipo</label>
+    <select id="inputTipo">
+      <option>Computadora</option>
+      <option>Impresora</option>
+      <option>Maquinaria</option>
+      <option>Otro</option>
+    </select>
+  </div>
+  <div class="campo">
+    <label for="inputUbicacion">Ubicación</label>
+    <input type="text" id="inputUbicacion" placeholder="Ej: Sala de informática">
+  </div>
+  <div class="campo">
+    <label for="inputEstado">Estado</label>
+    <select id="inputEstado">
+      <option value="ok">Al día</option>
+      <option value="pendiente">Mantenimiento pendiente</option>
+    </select>
+  </div>
+  <div class="form-acciones">
+    <button id="btnGuardar">Guardar equipo</button>
+    <button id="btnCancelar" class="btn-secundario">Cancelar</button>
+  </div>
+</div>
 
-        <section id="equipos">
+<table id="tablaEquipos">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Tipo</th>
+      <th>Ubicación</th>
+      <th>Estado</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody id="cuerpoTablaEquipos"></tbody>
+</table>
+<p id="mensajeVacio" class="mensaje-vacio">Todavía no hay equipos registrados.</p>
+</section>
 
-            <h2>🖥️ Equipos</h2>
+<section id="mantenimientos">
+<h2>🔧 Mantenimientos</h2>
+<p>
+  Aquí podremos registrar los trabajos de mantenimiento
+  realizados o pendientes.
+</p>
+<button>Registrar mantenimiento</button>
+</section>
 
-            <p>
-                Aquí podremos registrar computadoras, impresoras,
-                maquinarias y otros equipos del colegio.
-            </p>
+<section id="historial">
+<h2>📋 Historial</h2>
+<p>
+  Aquí aparecerá el historial de mantenimiento de cada equipo.
+</p>
+</section>
 
-            <button>Agregar equipo</button>
+</main>
 
-        </section>
+<footer>
+<p>
+  Sistema de Mantenimiento Escolar
+</p>
+</footer>
 
-        <section id="mantenimientos">
-
-            <h2>🔧 Mantenimientos</h2>
-
-            <p>
-                Aquí podremos registrar los trabajos de mantenimiento
-                realizados o pendientes.
-            </p>
-
-            <button>Registrar mantenimiento</button>
-
-        </section>
-
-        <section id="historial">
-
-            <h2>📋 Historial</h2>
-
-            <p>
-                Aquí aparecerá el historial de mantenimiento de cada equipo.
-            </p>
-
-        </section>
-
-    </main>
-
-    <footer>
-
-        <p>
-            Sistema de Mantenimiento Escolar
-        </p>
-
-    </footer>
-
+<script src="script.js"></script>
 </body>
-
 </html>
