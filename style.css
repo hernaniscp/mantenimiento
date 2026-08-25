@@ -1,0 +1,126 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #1f2937;
+}
+
+/* ENCABEZADO */
+
+header {
+    background-color: #1e3a8a;
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0 0 10px;
+}
+
+/* MENÚ */
+
+nav {
+    background-color: #172554;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #93c5fd;
+}
+
+/* CONTENIDO */
+
+main {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+section {
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+section h2 {
+    color: #1e3a8a;
+}
+
+/* TARJETAS */
+
+#inicio > div {
+    display: inline-block;
+    width: 30%;
+    margin: 1%;
+    padding: 20px;
+    background-color: #eff6ff;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#inicio > div h3 {
+    margin-top: 0;
+}
+
+#inicio > div p {
+    font-size: 35px;
+    font-weight: bold;
+    color: #2563eb;
+}
+
+/* BOTONES */
+
+button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+button:hover {
+    background-color: #1d4ed8;
+}
+
+/* PIE DE PÁGINA */
+
+footer {
+    background-color: #172554;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* CELULARES */
+
+@media (max-width: 700px) {
+
+    nav a {
+        display: block;
+        margin: 10px;
+    }
+
+    #inicio > div {
+        display: block;
+        width: 100%;
+        margin: 15px 0;
+    }
+}
