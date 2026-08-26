@@ -1,16 +1,16 @@
-const CLAVE_ALMACENAMIENTO = "mantenimiento_equipos";
+const API_URL = "api/equipos.php";
 
-function obtenerEquipos() {
-  const datos = localStorage.getItem(CLAVE_ALMACENAMIENTO);
-  return datos ? JSON.parse(datos) : [];
+async function obtenerEquipos() {
+  const respuesta = await fetch(API_URL);
+  if (!respuesta.ok) {
+    console.error("Error al obtener equipos");
+    return [];
+  }
+  return await respuesta.json();
 }
 
-function guardarEquipos(equipos) {
-  localStorage.setItem(CLAVE_ALMACENAMIENTO, JSON.stringify(equipos));
-}
-
-function renderizarEquipos() {
-  const equipos = obtenerEquipos();
+async function renderizarEquipos() {
+  const equipos = await obtenerEquipos();
   const cuerpoTabla = document.getElementById("cuerpoTablaEquipos");
   const mensajeVacio = document.getElementById("mensajeVacio");
 
@@ -50,7 +50,7 @@ function actualizarContadores(equipos) {
     equipos.filter((e) => e.estado === "pendiente").length;
 }
 
-function agregarEquipo() {
+async function agregarEquipo() {
   const nombre = document.getElementById("inputNombre").value.trim();
   const tipo = document.getElementById("inputTipo").value;
   const ubicacion = document.getElementById("inputUbicacion").value.trim();
@@ -61,27 +61,35 @@ function agregarEquipo() {
     return;
   }
 
-  const equipos = obtenerEquipos();
-  equipos.push({
-    id: Date.now(),
-    nombre,
-    tipo,
-    ubicacion,
-    estado,
+  const respuesta = await fetch(API_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ nombre, tipo, ubicacion, estado }),
   });
 
-  guardarEquipos(equipos);
-  renderizarEquipos();
+  if (!respuesta.ok) {
+    const error = await respuesta.json();
+    alert(error.error || "No se pudo guardar el equipo.");
+    return;
+  }
+
+  await renderizarEquipos();
   cerrarFormulario();
 }
 
-function quitarEquipo(id) {
+async function quitarEquipo(id) {
   if (!confirm("¿Seguro que querés quitar este equipo?")) return;
 
-  let equipos = obtenerEquipos();
-  equipos = equipos.filter((e) => e.id !== id);
-  guardarEquipos(equipos);
-  renderizarEquipos();
+  const respuesta = await fetch(`${API_URL}?id=${id}`, {
+    method: "DELETE",
+  });
+
+  if (!respuesta.ok) {
+    alert("No se pudo quitar el equipo.");
+    return;
+  }
+
+  await renderizarEquipos();
 }
 
 function abrirFormulario() {
