@@ -29,7 +29,7 @@ switch ($metodo) {
 
 function obtenerEquipos($conexion) {
     $resultado = $conexion->query(
-        "SELECT id, nombre, tipo, ubicacion, estado FROM equipos ORDER BY id DESC"
+        "SELECT id, nombre, descripcion, tipo, ubicacion, estado, fecha_registro FROM equipos ORDER BY id DESC"
     );
 
     $equipos = [];
@@ -43,10 +43,11 @@ function obtenerEquipos($conexion) {
 function agregarEquipo($conexion) {
     $datos = json_decode(file_get_contents("php://input"), true);
 
-    $nombre    = trim($datos['nombre'] ?? '');
-    $tipo      = trim($datos['tipo'] ?? '');
-    $ubicacion = trim($datos['ubicacion'] ?? '');
-    $estado    = trim($datos['estado'] ?? 'ok');
+    $nombre      = trim($datos['nombre'] ?? '');
+    $descripcion = trim($datos['descripcion'] ?? '');
+    $tipo        = trim($datos['tipo'] ?? '');
+    $ubicacion   = trim($datos['ubicacion'] ?? '');
+    $estado      = trim($datos['estado'] ?? 'ok');
 
     if ($nombre === '') {
         http_response_code(400);
@@ -59,17 +60,18 @@ function agregarEquipo($conexion) {
     }
 
     $stmt = $conexion->prepare(
-        "INSERT INTO equipos (nombre, tipo, ubicacion, estado) VALUES (?, ?, ?, ?)"
+        "INSERT INTO equipos (nombre, descripcion, tipo, ubicacion, estado) VALUES (?, ?, ?, ?, ?)"
     );
-    $stmt->bind_param("ssss", $nombre, $tipo, $ubicacion, $estado);
+    $stmt->bind_param("sssss", $nombre, $descripcion, $tipo, $ubicacion, $estado);
 
     if ($stmt->execute()) {
         echo json_encode([
-            "id"        => $stmt->insert_id,
-            "nombre"    => $nombre,
-            "tipo"      => $tipo,
-            "ubicacion" => $ubicacion,
-            "estado"    => $estado
+            "id"          => $stmt->insert_id,
+            "nombre"      => $nombre,
+            "descripcion" => $descripcion,
+            "tipo"        => $tipo,
+            "ubicacion"   => $ubicacion,
+            "estado"      => $estado
         ]);
     } else {
         http_response_code(500);

@@ -33,8 +33,9 @@ switch ($metodo) {
 
 function obtenerMantenimientos($conexion) {
     $resultado = $conexion->query(
-        "SELECT m.id, m.equipo_id, e.nombre AS equipo_nombre, m.tipo_trabajo,
-                m.descripcion, m.estado, m.fecha
+        "SELECT m.id, m.equipo_id, e.nombre AS equipo_nombre,
+                e.fecha_registro AS equipo_fecha_alta,
+                m.tipo_trabajo, m.descripcion, m.estado, m.fecha
          FROM mantenimientos m
          INNER JOIN equipos e ON e.id = m.equipo_id
          ORDER BY m.fecha DESC, m.id DESC"
