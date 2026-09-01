@@ -6,12 +6,7 @@
 <title>Mantenimiento Escolar</title>
 <link rel="stylesheet" href="style.css">
 </head>
-<<<<<<< HEAD
-
-<body> 
-=======
 <body>
->>>>>>> 2086bdefc01fd89a6d3bb8e10f1aff9855daae01
 
 <header>
 <h1>🏫 Mantenimiento Escolar</h1>
@@ -63,6 +58,10 @@
     <label for="inputNombre">Nombre del equipo</label>
     <input type="text" id="inputNombre" placeholder="Ej: PC Lab 03">
   </div>
+  <div class="campo campo-full">
+    <label for="inputDescripcionEquipo">Descripción</label>
+    <input type="text" id="inputDescripcionEquipo" placeholder="Ej: Marca, modelo, características">
+  </div>
   <div class="campo">
     <label for="inputTipo">Tipo</label>
     <select id="inputTipo">
@@ -89,10 +88,11 @@
   </div>
 </div>
 
-<table id="tablaEquipos">
+<table id="tablaEquipos" class="tabla-datos">
   <thead>
     <tr>
       <th>Nombre</th>
+      <th>Descripción</th>
       <th>Tipo</th>
       <th>Ubicación</th>
       <th>Estado</th>
@@ -110,14 +110,83 @@
   Aquí podremos registrar los trabajos de mantenimiento
   realizados o pendientes.
 </p>
-<button>Registrar mantenimiento</button>
+
+<button id="btnToggleFormMantenimiento">Registrar mantenimiento</button>
+
+<div id="formMantenimiento" class="form-equipo">
+  <div class="campo">
+    <label for="selectEquipoMantenimiento">Equipo</label>
+    <select id="selectEquipoMantenimiento"></select>
+  </div>
+  <div class="campo">
+    <label for="inputTipoTrabajo">Tipo de trabajo</label>
+    <select id="inputTipoTrabajo">
+      <option>Preventivo</option>
+      <option>Correctivo</option>
+      <option>Actualización</option>
+      <option>Otro</option>
+    </select>
+  </div>
+  <div class="campo">
+    <label for="inputFechaMantenimiento">Fecha</label>
+    <input type="date" id="inputFechaMantenimiento">
+  </div>
+  <div class="campo">
+    <label for="inputEstadoMantenimiento">Estado</label>
+    <select id="inputEstadoMantenimiento">
+      <option value="pendiente">Pendiente</option>
+      <option value="realizado">Realizado</option>
+    </select>
+  </div>
+  <div class="campo campo-full">
+    <label for="inputDescripcion">Descripción</label>
+    <textarea id="inputDescripcion" rows="3" placeholder="Detalle del trabajo realizado o a realizar"></textarea>
+  </div>
+  <div class="form-acciones">
+    <button id="btnGuardarMantenimiento">Guardar mantenimiento</button>
+    <button id="btnCancelarMantenimiento" class="btn-secundario">Cancelar</button>
+  </div>
+</div>
+
+<h3 class="subtitulo">Pendientes</h3>
+<table id="tablaMantenimientosPendientes" class="tabla-datos">
+  <thead>
+    <tr>
+      <th>Equipo</th>
+      <th>Fecha de alta</th>
+      <th>Tipo</th>
+      <th>Descripción</th>
+      <th>Fecha</th>
+      <th>Estado</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody id="cuerpoTablaMantenimientos"></tbody>
+</table>
+<p id="mensajeVacioMantenimientos" class="mensaje-vacio">No hay mantenimientos pendientes.</p>
 </section>
 
 <section id="historial">
 <h2>📋 Historial</h2>
 <p>
-  Aquí aparecerá el historial de mantenimiento de cada equipo.
+  Aquí aparece el historial de mantenimiento de cada equipo.
 </p>
+
+<table id="tablaHistorial" class="tabla-datos">
+  <thead>
+    <tr>
+      <th>Equipo</th>
+      <th>Fecha de alta</th>
+      <th>Tipo</th>
+      <th>Descripción</th>
+      <th>Fecha</th>
+      <th>Estado</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody id="cuerpoTablaHistorial"></tbody>
+</table>
+<p id="mensajeVacioHistorial" class="mensaje-vacio">Todavía no hay mantenimientos registrados.</p>
 </section>
 
 </main>
