@@ -1,0 +1,27 @@
+[02-Sep-2026 19:47:38 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'conakwwi_mantenimiento.votos' doesn't exist in /home3/conakwwi/mantenimiento.iscp.edu.ar/gotalent/lista.php:14
+Stack trace:
+#0 /home3/conakwwi/mantenimiento.iscp.edu.ar/gotalent/lista.php(14): mysqli->prepare('\n    SELECT p.i...')
+#1 {main}
+  thrown in /home3/conakwwi/mantenimiento.iscp.edu.ar/gotalent/lista.php on line 14
+[02-Sep-2026 19:49:48 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'conakwwi_mantenimiento.votos' doesn't exist in /home3/conakwwi/mantenimiento.iscp.edu.ar/gotalent/lista.php:14
+Stack trace:
+#0 /home3/conakwwi/mantenimiento.iscp.edu.ar/gotalent/lista.php(14): mysqli->prepare('\n    SELECT p.i...')
+#1 {main}
+  thrown in /home3/conakwwi/mantenimiento.iscp.edu.ar/gotalent/lista.php on line 14
+[02-Sep-2026 19:49:49 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'conakwwi_mantenimiento.votos' doesn't exist in /home3/conakwwi/mantenimiento.iscp.edu.ar/gotalent/lista.php:14
+Stack trace:
+#0 /home3/conakwwi/mantenimiento.iscp.edu.ar/gotalent/lista.php(14): mysqli->prepare('\n    SELECT p.i...')
+#1 {main}
+  thrown in /home3/conakwwi/mantenimiento.iscp.edu.ar/gotalent/lista.php on line 14
+[02-Sep-2026 19:50:30 UTC] PHP Warning:  require(/home3/conakwwi/mantenimiento.iscp.edu.ar/gotalentgotalent/config.php): failed to open stream: No such file or directory in /home3/conakwwi/mantenimiento.iscp.edu.ar/gotalent/lista.php on line 2
+[02-Sep-2026 19:50:30 UTC] PHP Fatal error:  require(): Failed opening required '/home3/conakwwi/mantenimiento.iscp.edu.ar/gotalentgotalent/config.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home3/conakwwi/mantenimiento.iscp.edu.ar/gotalent/lista.php on line 2
+[02-Sep-2026 19:50:31 UTC] PHP Warning:  require(/home3/conakwwi/mantenimiento.iscp.edu.ar/gotalentgotalent/config.php): failed to open stream: No such file or directory in /home3/conakwwi/mantenimiento.iscp.edu.ar/gotalent/lista.php on line 2
+[02-Sep-2026 19:50:31 UTC] PHP Fatal error:  require(): Failed opening required '/home3/conakwwi/mantenimiento.iscp.edu.ar/gotalentgotalent/config.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home3/conakwwi/mantenimiento.iscp.edu.ar/gotalent/lista.php on line 2
+[02-Sep-2026 19:50:31 UTC] PHP Warning:  require(/home3/conakwwi/mantenimiento.iscp.edu.ar/gotalentgotalent/config.php): failed to open stream: No such file or directory in /home3/conakwwi/mantenimiento.iscp.edu.ar/gotalent/lista.php on line 2
+[02-Sep-2026 19:50:31 UTC] PHP Fatal error:  require(): Failed opening required '/home3/conakwwi/mantenimiento.iscp.edu.ar/gotalentgotalent/config.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home3/conakwwi/mantenimiento.iscp.edu.ar/gotalent/lista.php on line 2
+[02-Sep-2026 19:50:32 UTC] PHP Warning:  require(/home3/conakwwi/mantenimiento.iscp.edu.ar/gotalentgotalent/config.php): failed to open stream: No such file or directory in /home3/conakwwi/mantenimiento.iscp.edu.ar/gotalent/lista.php on line 2
+[02-Sep-2026 19:50:32 UTC] PHP Fatal error:  require(): Failed opening required '/home3/conakwwi/mantenimiento.iscp.edu.ar/gotalentgotalent/config.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home3/conakwwi/mantenimiento.iscp.edu.ar/gotalent/lista.php on line 2
+[02-Sep-2026 19:50:32 UTC] PHP Warning:  require(/home3/conakwwi/mantenimiento.iscp.edu.ar/gotalentgotalent/config.php): failed to open stream: No such file or directory in /home3/conakwwi/mantenimiento.iscp.edu.ar/gotalent/lista.php on line 2
+[02-Sep-2026 19:50:32 UTC] PHP Fatal error:  require(): Failed opening required '/home3/conakwwi/mantenimiento.iscp.edu.ar/gotalentgotalent/config.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home3/conakwwi/mantenimiento.iscp.edu.ar/gotalent/lista.php on line 2
+[03-Sep-2026 04:17:20 UTC] PHP Warning:  require(/home3/conakwwi/mantenimiento.iscp.edu.ar/gotalentgotalent/config.php): failed to open stream: No such file or directory in /home3/conakwwi/mantenimiento.iscp.edu.ar/gotalent/lista.php on line 2
+[03-Sep-2026 04:17:20 UTC] PHP Fatal error:  require(): Failed opening required '/home3/conakwwi/mantenimiento.iscp.edu.ar/gotalentgotalent/config.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home3/conakwwi/mantenimiento.iscp.edu.ar/gotalent/lista.php on line 2

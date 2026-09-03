@@ -1,42 +1,88 @@
+/* ==========================================================
+   PALETA Y TIPOGRAFÍAS
+   ========================================================== */
+:root {
+  --azul-oscuro: #14213d;
+  --azul: #1f3a63;
+  --azul-medio: #2a5090;
+  --azul-claro: #e8edf5;
+
+  --bordo: #6d1a2f;
+  --bordo-oscuro: #4c1220;
+  --bordo-claro: #f6e9ec;
+
+  --texto: #212936;
+  --texto-secundario: #5b6472;
+  --borde: #d7dce3;
+
+  --exito-bg: #e3f0e6;
+  --exito-texto: #235c33;
+
+  --fuente-titulos: "Merriweather", Georgia, serif;
+  --fuente-texto: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f4f6f8;
-  color: #1f2937;
+  font-family: var(--fuente-texto);
+  background-color: #f2f4f7;
+  color: var(--texto);
+  line-height: 1.5;
+}
+
+h1, h2, h3 {
+  font-family: var(--fuente-titulos);
 }
 
 /* ENCABEZADO */
 header {
-  background-color: #1e3a8a;
+  background-color: var(--azul-oscuro);
   color: white;
-  padding: 30px;
+  padding: 34px 30px 28px;
   text-align: center;
+  border-bottom: 4px solid var(--bordo);
 }
 
 header h1 {
-  margin: 0 0 10px;
+  margin: 0 0 8px;
+  font-weight: 700;
+  font-size: 30px;
+  letter-spacing: 0.3px;
+}
+
+header p {
+  margin: 0;
+  color: #cdd6e4;
+  font-size: 15px;
 }
 
 /* MENÚ */
 nav {
-  background-color: #172554;
-  padding: 15px;
+  background-color: var(--azul);
+  padding: 14px;
   text-align: center;
+  border-bottom: 2px solid var(--bordo);
 }
 
 nav a {
-  color: white;
+  color: #eef1f6;
   text-decoration: none;
-  margin: 0 15px;
-  font-weight: bold;
+  margin: 0 18px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.15s ease, color 0.15s ease;
 }
 
 nav a:hover {
-  color: #93c5fd;
+  color: #ffffff;
+  border-bottom-color: var(--bordo);
 }
 
 /* CONTENIDO */
@@ -48,53 +94,76 @@ main {
 
 section {
   background-color: white;
-  padding: 25px;
+  padding: 26px 28px;
   margin-bottom: 25px;
-  border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  border: 1px solid var(--borde);
+  box-shadow: 0 2px 6px rgba(20, 33, 61, 0.06);
 }
 
 section h2 {
-  color: #1e3a8a;
+  color: var(--azul-oscuro);
+  margin-top: 0;
+  font-size: 22px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--azul-claro);
 }
 
-/* TARJETAS */
+section > p {
+  color: var(--texto-secundario);
+  font-size: 15px;
+}
+
+/* TARJETAS DEL PANEL PRINCIPAL */
 #inicio > div {
   display: inline-block;
   width: 30%;
   margin: 1%;
   padding: 20px;
-  background-color: #eff6ff;
-  border-radius: 10px;
+  background-color: var(--azul-claro);
+  border-radius: 8px;
+  border-left: 4px solid var(--azul);
   text-align: center;
+}
+
+#inicio > div:nth-child(3) {
+  border-left-color: var(--bordo);
 }
 
 #inicio > div h3 {
   margin-top: 0;
+  font-size: 15px;
+  color: var(--azul-oscuro);
+  font-weight: 700;
 }
 
 #inicio > div p {
-  font-size: 35px;
-  font-weight: bold;
-  color: #2563eb;
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--azul-oscuro);
+  margin: 6px 0 0;
+  font-family: var(--fuente-titulos);
 }
 
 /* BOTONES */
 button {
-  background-color: #2563eb;
+  background-color: var(--azul);
   color: white;
   border: none;
-  padding: 12px 20px;
-  border-radius: 6px;
+  padding: 11px 20px;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--fuente-texto);
+  letter-spacing: 0.2px;
 }
 
 button:hover {
-  background-color: #1d4ed8;
+  background-color: var(--azul-oscuro);
 }
 
-/* FORMULARIO DE AGREGAR EQUIPO */
+/* FORMULARIOS (equipos y mantenimientos) */
 .form-equipo {
   display: none;
   grid-template-columns: 1fr 1fr;
@@ -102,9 +171,9 @@ button:hover {
   margin-top: 18px;
   margin-bottom: 10px;
   padding: 20px;
-  background-color: #f9fafb;
-  border-radius: 10px;
-  border: 1px solid #e5e7eb;
+  background-color: #fafbfc;
+  border-radius: 8px;
+  border: 1px solid var(--borde);
 }
 
 .form-equipo.abierto {
@@ -114,18 +183,36 @@ button:hover {
 .form-equipo .campo label {
   display: block;
   font-size: 13px;
-  font-weight: bold;
+  font-weight: 600;
   margin-bottom: 4px;
-  color: #374151;
+  color: var(--azul-oscuro);
 }
 
 .form-equipo input,
-.form-equipo select {
+.form-equipo select,
+.form-equipo textarea {
   width: 100%;
   padding: 10px 12px;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
+  border: 1px solid var(--borde);
+  border-radius: 5px;
   font-size: 14px;
+  font-family: inherit;
+  color: var(--texto);
+}
+
+.form-equipo input:focus,
+.form-equipo select:focus,
+.form-equipo textarea:focus {
+  outline: none;
+  border-color: var(--azul);
+}
+
+.form-equipo textarea {
+  resize: vertical;
+}
+
+.form-equipo .campo-full {
+  grid-column: 1 / -1;
 }
 
 .form-acciones {
@@ -135,65 +222,99 @@ button:hover {
 }
 
 .btn-secundario {
-  background-color: #e5e7eb;
-  color: #374151;
+  background-color: #e4e8ee;
+  color: var(--azul-oscuro);
 }
 
 .btn-secundario:hover {
-  background-color: #d1d5db;
+  background-color: #d3d9e2;
 }
 
-/* TABLA DE EQUIPOS */
-#tablaEquipos {
+.btn-completar {
+  background-color: #fff;
+  color: var(--exito-texto);
+  border: 1px solid var(--exito-texto);
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+.btn-completar:hover {
+  background-color: var(--exito-bg);
+}
+
+/* TABLAS DE DATOS (equipos, mantenimientos, historial) */
+.tabla-datos {
   width: 100%;
   border-collapse: collapse;
   margin-top: 16px;
 }
 
-#tablaEquipos th,
-#tablaEquipos td {
+.tabla-datos th,
+.tabla-datos td {
   text-align: left;
   padding: 10px 12px;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid var(--borde);
   font-size: 14px;
 }
 
-#tablaEquipos th {
-  color: #6b7280;
-  font-size: 13px;
+.tabla-datos th {
+  color: var(--azul-oscuro);
+  font-size: 12.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  background-color: var(--azul-claro);
 }
 
+.celda-acciones {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.subtitulo {
+  margin-top: 24px;
+  margin-bottom: 0;
+  color: var(--azul-oscuro);
+  font-size: 16px;
+  font-family: var(--fuente-titulos);
+}
+
+/* ESTADOS (badges) */
 .badge {
   padding: 3px 10px;
   border-radius: 999px;
   font-size: 12px;
-  font-weight: bold;
+  font-weight: 700;
+  letter-spacing: 0.2px;
 }
 
 .badge.ok {
-  background-color: #dcfce7;
-  color: #166534;
+  background-color: var(--exito-bg);
+  color: var(--exito-texto);
 }
 
 .badge.pendiente {
-  background-color: #fef3c7;
-  color: #92400e;
+  background-color: var(--bordo-claro);
+  color: var(--bordo-oscuro);
 }
 
-.btn-quitar {
+.btn-quitar,
+.btn-quitar-historial {
   background-color: #fff;
-  color: #dc2626;
-  border: 1px solid #dc2626;
+  color: var(--bordo);
+  border: 1px solid var(--bordo);
   padding: 6px 12px;
   font-size: 13px;
 }
 
-.btn-quitar:hover {
-  background-color: #fef2f2;
+.btn-quitar:hover,
+.btn-quitar-historial:hover {
+  background-color: var(--bordo-claro);
 }
 
 .mensaje-vacio {
-  color: #9ca3af;
+  color: var(--texto-secundario);
   font-size: 14px;
   text-align: center;
   padding: 14px 0;
@@ -201,11 +322,13 @@ button:hover {
 
 /* PIE DE PÁGINA */
 footer {
-  background-color: #172554;
-  color: white;
+  background-color: var(--azul-oscuro);
+  color: #cdd6e4;
   text-align: center;
   padding: 20px;
   margin-top: 40px;
+  border-top: 4px solid var(--bordo);
+  font-size: 14px;
 }
 
 /* CELULARES */
