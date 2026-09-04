@@ -16,7 +16,7 @@ define('TOTAL_JURADOS', 5);
 
 // Contraseña para entrar a la pantalla de resultados (resultados.php).
 // Cambiala por una propia antes de subir el sitio.
-define('jurados', 'jurados12345');
+define('ADMIN_PASS', 'jurados12345');
 
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 

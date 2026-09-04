@@ -1,8 +1,8 @@
 /* ==========================================================
-   PALETA Y TIPOGRAFÍAS
+   PALETA Y TIPOGRAFÍAS — libro de actas / ficha escolar
    ========================================================== */
 :root {
-  --azul-oscuro: #14213d;
+  --azul-noche: #101d33;
   --azul: #1f3a63;
   --azul-medio: #2a5090;
   --azul-claro: #e8edf5;
@@ -10,6 +10,11 @@
   --bordo: #6d1a2f;
   --bordo-oscuro: #4c1220;
   --bordo-claro: #f6e9ec;
+
+  --dorado: #a9822c;
+
+  --papel: #f7f3ea;
+  --papel-linea: #ddd2b9;
 
   --texto: #212936;
   --texto-secundario: #5b6472;
@@ -29,7 +34,7 @@
 body {
   margin: 0;
   font-family: var(--fuente-texto);
-  background-color: #f2f4f7;
+  background-color: #eceff4;
   color: var(--texto);
   line-height: 1.5;
 }
@@ -38,75 +43,103 @@ h1, h2, h3 {
   font-family: var(--fuente-titulos);
 }
 
-/* ENCABEZADO */
+/* ==========================================================
+   ENCABEZADO — masthead tipo diploma, escudo + título
+   ========================================================== */
 header {
-  background-color: var(--azul-oscuro);
+  background-color: var(--azul-noche);
   color: white;
-  padding: 34px 30px 28px;
+  padding: 30px 30px 24px;
   text-align: center;
-  border-bottom: 4px solid var(--bordo);
+  border-bottom: 2px solid var(--dorado);
+  box-shadow: 0 4px 0 -2px var(--azul-noche), 0 6px 0 -2px var(--bordo);
 }
 
-header h1 {
-  margin: 0 0 8px;
+.marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  text-align: left;
+}
+
+.escudo {
+  height: 68px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.35));
+}
+
+.marca-texto h1 {
+  margin: 0 0 4px;
   font-weight: 700;
-  font-size: 30px;
-  letter-spacing: 0.3px;
+  font-size: 28px;
+  letter-spacing: 0.2px;
 }
 
-header p {
+.marca-texto p {
   margin: 0;
   color: #cdd6e4;
-  font-size: 15px;
+  font-size: 14.5px;
 }
 
-/* MENÚ */
+/* ==========================================================
+   MENÚ — pestañas de carpeta
+   ========================================================== */
 nav {
-  background-color: var(--azul);
-  padding: 14px;
+  background-color: transparent;
+  padding: 0 14px;
   text-align: center;
-  border-bottom: 2px solid var(--bordo);
 }
 
 nav a {
-  color: #eef1f6;
+  display: inline-block;
+  color: var(--azul-noche);
+  background-color: #dbe2ee;
   text-decoration: none;
-  margin: 0 18px;
+  margin: 0 3px;
   font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0.3px;
-  padding-bottom: 4px;
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.15s ease, color 0.15s ease;
+  font-size: 13.5px;
+  letter-spacing: 0.2px;
+  padding: 10px 22px 9px;
+  border: 1px solid var(--borde);
+  border-bottom: none;
+  clip-path: polygon(8% 0, 92% 0, 100% 100%, 0% 100%);
+  position: relative;
+  top: 8px;
+  transition: top 0.15s ease, background-color 0.15s ease, color 0.15s ease;
 }
 
 nav a:hover {
-  color: #ffffff;
-  border-bottom-color: var(--bordo);
+  top: 0;
+  background-color: var(--azul);
+  color: white;
 }
 
-/* CONTENIDO */
+/* ==========================================================
+   CONTENIDO
+   ========================================================== */
 main {
   width: 90%;
   max-width: 1100px;
-  margin: 30px auto;
+  margin: 0 auto 30px;
+  padding-top: 24px;
 }
 
 section {
-  background-color: white;
-  padding: 26px 28px;
+  background-color: var(--papel);
+  padding: 26px 28px 26px 26px;
   margin-bottom: 25px;
-  border-radius: 8px;
   border: 1px solid var(--borde);
-  box-shadow: 0 2px 6px rgba(20, 33, 61, 0.06);
+  border-left: 4px solid var(--bordo);
+  position: relative;
 }
 
 section h2 {
-  color: var(--azul-oscuro);
+  color: var(--azul-noche);
   margin-top: 0;
-  font-size: 22px;
+  font-size: 21px;
   padding-bottom: 10px;
-  border-bottom: 2px solid var(--azul-claro);
+  border-bottom: 1px solid var(--papel-linea);
 }
 
 section > p {
@@ -114,35 +147,38 @@ section > p {
   font-size: 15px;
 }
 
-/* TARJETAS DEL PANEL PRINCIPAL */
+/* TARJETAS DEL PANEL PRINCIPAL — estilo sello / ficha */
 #inicio > div {
   display: inline-block;
   width: 30%;
   margin: 1%;
-  padding: 20px;
-  background-color: var(--azul-claro);
-  border-radius: 8px;
-  border-left: 4px solid var(--azul);
+  padding: 18px 20px 20px;
+  background-color: white;
+  border-top: 3px solid var(--dorado);
   text-align: center;
 }
 
 #inicio > div:nth-child(3) {
-  border-left-color: var(--bordo);
+  border-top-color: var(--bordo);
 }
 
 #inicio > div h3 {
   margin-top: 0;
-  font-size: 15px;
-  color: var(--azul-oscuro);
-  font-weight: 700;
+  font-size: 13.5px;
+  color: var(--texto-secundario);
+  font-weight: 600;
+  font-family: var(--fuente-texto);
+  font-variant: small-caps;
+  letter-spacing: 0.4px;
 }
 
 #inicio > div p {
-  font-size: 34px;
+  font-size: 36px;
   font-weight: 700;
-  color: var(--azul-oscuro);
+  color: var(--azul-noche);
   margin: 6px 0 0;
   font-family: var(--fuente-titulos);
+  font-variant-numeric: tabular-nums;
 }
 
 /* BOTONES */
@@ -151,7 +187,7 @@ button {
   color: white;
   border: none;
   padding: 11px 20px;
-  border-radius: 5px;
+  border-radius: 3px;
   cursor: pointer;
   font-size: 14px;
   font-weight: 600;
@@ -160,7 +196,7 @@ button {
 }
 
 button:hover {
-  background-color: var(--azul-oscuro);
+  background-color: var(--azul-noche);
 }
 
 /* FORMULARIOS (equipos y mantenimientos) */
@@ -171,9 +207,8 @@ button:hover {
   margin-top: 18px;
   margin-bottom: 10px;
   padding: 20px;
-  background-color: #fafbfc;
-  border-radius: 8px;
-  border: 1px solid var(--borde);
+  background-color: #fcfaf5;
+  border: 1px dashed var(--papel-linea);
 }
 
 .form-equipo.abierto {
@@ -185,7 +220,7 @@ button:hover {
   font-size: 13px;
   font-weight: 600;
   margin-bottom: 4px;
-  color: var(--azul-oscuro);
+  color: var(--azul-noche);
 }
 
 .form-equipo input,
@@ -194,10 +229,11 @@ button:hover {
   width: 100%;
   padding: 10px 12px;
   border: 1px solid var(--borde);
-  border-radius: 5px;
+  border-radius: 3px;
   font-size: 14px;
   font-family: inherit;
   color: var(--texto);
+  background-color: white;
 }
 
 .form-equipo input:focus,
@@ -223,7 +259,7 @@ button:hover {
 
 .btn-secundario {
   background-color: #e4e8ee;
-  color: var(--azul-oscuro);
+  color: var(--azul-noche);
 }
 
 .btn-secundario:hover {
@@ -236,34 +272,42 @@ button:hover {
   border: 1px solid var(--exito-texto);
   padding: 6px 12px;
   font-size: 13px;
+  border-radius: 3px;
 }
 
 .btn-completar:hover {
   background-color: var(--exito-bg);
 }
 
-/* TABLAS DE DATOS (equipos, mantenimientos, historial) */
+/* ==========================================================
+   TABLAS DE DATOS — hoja de libro de actas
+   ========================================================== */
 .tabla-datos {
   width: 100%;
   border-collapse: collapse;
   margin-top: 16px;
+  border-left: 2px solid var(--bordo-claro);
 }
 
 .tabla-datos th,
 .tabla-datos td {
   text-align: left;
-  padding: 10px 12px;
-  border-bottom: 1px solid var(--borde);
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--papel-linea);
   font-size: 14px;
 }
 
 .tabla-datos th {
-  color: var(--azul-oscuro);
-  font-size: 12.5px;
+  color: var(--azul-noche);
+  font-size: 13px;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.4px;
+  font-variant: small-caps;
+  letter-spacing: 0.3px;
   background-color: var(--azul-claro);
+}
+
+.tabla-datos tbody tr:nth-child(even) {
+  background-color: #fbf9f3;
 }
 
 .celda-acciones {
@@ -275,7 +319,7 @@ button:hover {
 .subtitulo {
   margin-top: 24px;
   margin-bottom: 0;
-  color: var(--azul-oscuro);
+  color: var(--azul-noche);
   font-size: 16px;
   font-family: var(--fuente-titulos);
 }
@@ -306,6 +350,7 @@ button:hover {
   border: 1px solid var(--bordo);
   padding: 6px 12px;
   font-size: 13px;
+  border-radius: 3px;
 }
 
 .btn-quitar:hover,
@@ -318,30 +363,43 @@ button:hover {
   font-size: 14px;
   text-align: center;
   padding: 14px 0;
+  font-style: italic;
 }
 
 /* PIE DE PÁGINA */
 footer {
-  background-color: var(--azul-oscuro);
+  background-color: var(--azul-noche);
   color: #cdd6e4;
   text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-  border-top: 4px solid var(--bordo);
-  font-size: 14px;
+  padding: 18px;
+  margin-top: 10px;
+  border-top: 2px solid var(--dorado);
+  font-size: 13.5px;
 }
 
 /* CELULARES */
 @media (max-width: 700px) {
+  .marca {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  nav {
+    padding: 0 6px;
+  }
+
   nav a {
     display: block;
-    margin: 10px;
+    margin: 6px 0;
+    top: 0;
+    clip-path: none;
   }
 
   #inicio > div {
     display: block;
     width: 100%;
-    margin: 15px 0;
+    margin: 12px 0;
   }
 
   .form-equipo {
